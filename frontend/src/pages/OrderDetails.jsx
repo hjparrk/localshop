@@ -24,9 +24,11 @@ const OrderDetails = () => {
           {order.products.map((product, i) => {
             return (
               <div key={i}>
-                <img src={product.product.image.url} width={100} height={100} />
-                <h1>{product.product.name}</h1>
-                <h1>${+parseFloat(product.product.price.$numberDecimal)}</h1>
+                <img src={product.product.image.url} />
+                <h1 classname="font-bold">{product.product.name}</h1>
+                <h1 className="text-xs">
+                  ${+parseFloat(product.product.price.$numberDecimal)}
+                </h1>
               </div>
             );
           })}

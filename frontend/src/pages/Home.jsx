@@ -40,8 +40,8 @@ const Home = () => {
                   <img src={product.image.url} />
 
                   <div className="flex justify-between">
-                    <h1>{product.name}</h1>
-                    <h1>
+                    <h1 className="font-semibold">{product.name}</h1>
+                    <h1 className="">
                       ${+parseFloat(product.price.$numberDecimal).toFixed(2)}
                     </h1>
                   </div>
