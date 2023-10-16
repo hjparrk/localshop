@@ -133,6 +133,13 @@ form button > div {
   display: flex;
   flex-direction: column;
   width: calc(25% - 10px);
+
+  @media (max-width: 768px) {
+    width: calc(50% - 10px);
+  }
+  @media (max-width: 480px) {
+    width: calc(100% - 10px);
+  }
   margin: 5px;
   padding: 10px;
   background-color: #f9f9f9;
