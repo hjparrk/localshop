@@ -3,7 +3,7 @@ import Sidebar from "../../components/admin/Sidebar";
 
 export const DashBoard = ({ children }) => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-col">
       <Sidebar />
       {children}
     </div>

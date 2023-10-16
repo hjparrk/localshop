@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import BasicLayout from "../../components/Layout/BasicLayout";
+import { DashBoard } from "../../components/admin/DashBoard";
 import { useCreateProductMutation } from "../../redux/api/adminAPI";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -55,66 +56,67 @@ const NewProduct = () => {
 
   return (
     <BasicLayout>
-      <form className="flex flex-col gap-5" onSubmit={submitHandler}>
-        <input
-          className="input box"
-          type="text"
-          placeholder="name"
-          ref={nameRef}
-          required
-        />
-        <textarea
-          className="input box"
-          type="text"
-          placeholder="description"
-          ref={descriptionRef}
-          required
-        />
-        <input
-          className="input box"
-          type="text"
-          placeholder="brand"
-          ref={brandRef}
-          required
-        />
-        <input
-          className="input box"
-          type="text"
-          placeholder="category"
-          ref={categoryRef}
-          required
-        />
-        <input
-          className="input box"
-          type="number"
-          min="0"
-          max="10000"
-          step="0.01"
-          placeholder="price"
-          ref={priceRef}
-          required
-        />
-        <input
-          className="input box"
-          type="number"
-          placeholder="stock"
-          ref={stockRef}
-          required
-        />
-        <input
-          className="input"
-          type="file"
-          placeholder="image"
-          onChange={imageHandler}
-          required
-        />
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 mt-2 rounded-lg"
-        >
-          Add Product
-        </button>
-      </form>
+      <DashBoard>
+        <form onSubmit={submitHandler}>
+          <h1>Upload New Information</h1>
+          <input
+            className="input box"
+            type="text"
+            placeholder="name"
+            ref={nameRef}
+            required
+          />
+          <textarea
+            className="input box"
+            type="text"
+            placeholder="description"
+            ref={descriptionRef}
+            required
+          />
+          <input
+            className="input box"
+            type="text"
+            placeholder="brand"
+            ref={brandRef}
+            required
+          />
+          <input
+            className="input box"
+            type="text"
+            placeholder="category"
+            ref={categoryRef}
+            required
+          />
+          <input
+            className="input box"
+            type="number"
+            min="0"
+            max="10000"
+            step="0.01"
+            placeholder="price"
+            ref={priceRef}
+            required
+          />
+          <input
+            className="input box"
+            type="number"
+            placeholder="stock"
+            ref={stockRef}
+            required
+          />
+          <input
+            className="input"
+            type="file"
+            placeholder="image"
+            onChange={imageHandler}
+            accept=".jpg, .jpeg, .png, .webp"
+            required
+          />
+          <button type="submit" className="bg-black">
+            <div> Add Product </div>
+          </button>
+        </form>
+      </DashBoard>
     </BasicLayout>
   );
 };

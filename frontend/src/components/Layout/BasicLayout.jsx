@@ -6,7 +6,7 @@ const BasicLayout = ({ children }) => {
   return (
     <Fragment>
       <Header />
-      <div className="py-5 px-[10%]">{children}</div>
+      <div className="px-2 md:px-3">{children}</div>
     </Fragment>
   );
 };

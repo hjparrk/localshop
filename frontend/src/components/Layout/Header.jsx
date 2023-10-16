@@ -25,13 +25,21 @@ const Header = () => {
   const admin = isAuthenticated && role === "admin";
 
   return (
-    <div className="flex flex-row gap-5">
-      <Link to="/">Localshop</Link>
-      {user && <Link to="/cart">Cart</Link>}
-      {user && <Link to="/order">Order</Link>}
-      {admin && <Link to="/admin/products">Admin</Link>}
-      {visitor && <Link to="/login">Login</Link>}
-      {visitor && <Link to="/register">Register</Link>}
+    <div className="flex flex-row header-nav">
+      <div className="flex gap-5 align-center">
+        <Link to="/" className="text-xl">
+          LocalShop
+        </Link>
+        {user && <Link to="/cart">Cart</Link>}
+        {user && <Link to="/order">Order</Link>}
+        {admin && <Link to="/admin/products">Admin</Link>}
+      </div>
+      {visitor && (
+        <div className="flex gap-5">
+          <Link to="/register">Register</Link>
+          <Link to="/login">Login</Link>
+        </div>
+      )}
       {(user || admin) && (
         <Link to="/" onClick={logoutHandler}>
           Logout

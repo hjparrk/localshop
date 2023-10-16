@@ -14,18 +14,21 @@ const ManageUsers = () => {
   return (
     <BasicLayout>
       <DashBoard>
-        <div className="flex flex-col gap-5">
+        <h1 className="page-title">Manage Users</h1>
+        <div className="flex flex-col">
           {users &&
             users.map((user, i) => {
               return (
-                <div key={i}>
-                  <h1>{user.name}</h1>
-                  <h1>{user.email}</h1>
+                <div key={i} className="product-bar">
+                  <div>
+                    <h1>{user.name}</h1>
+                    <h1>{user.email}</h1>
+                  </div>
                   <button
+                    className="my-auto"
                     onClick={async () => {
                       await deleteUser(user._id);
-                    }}
-                  >
+                    }}>
                     delete
                   </button>
                 </div>

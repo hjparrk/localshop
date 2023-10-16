@@ -27,22 +27,25 @@ const Home = () => {
   return (
     <BasicLayout>
       <div>
-        <h1>Local Shop</h1>
+        <h1 className="page-title">Our Products</h1>
         <div className="flex flex-row gap-6">
           <Filter />
-          <div className="grid grid-cols-4 gap-5">
+          <div className="w-full flex flex-wrap">
             {data?.products?.map((product, i) => {
               return (
-                <div className="" key={i}>
-                  <Link to={`/products/${product._id}`}>
-                    <img src={product.image.url} />
+                <Link
+                  to={`/products/${product._id}`}
+                  className="product-box"
+                  key={i}>
+                  <img src={product.image.url} />
+
+                  <div className="flex justify-between">
                     <h1>{product.name}</h1>
                     <h1>
                       ${+parseFloat(product.price.$numberDecimal).toFixed(2)}
                     </h1>
-                    <h1>{product.brand}</h1>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               );
             })}
           </div>

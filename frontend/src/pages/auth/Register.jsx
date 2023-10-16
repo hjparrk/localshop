@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import BasicLayout from "../../components/Layout/BasicLayout";
 
 const Register = () => {
   const nameRef = useRef();
@@ -23,26 +24,22 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <form className="flex flex-col gap-3" onSubmit={submitHandler}>
-        <div>
-          <label>Name</label>
-          <input type="text" placeholder="name" ref={nameRef} />
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" placeholder="email" ref={emailRef} />
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="password" placeholder="password" ref={passwordRef} />
-        </div>
-        <div className="flex flex-col gap-5 items-start">
-          <button type="submit">Register</button>
-          <Link to="/login">{"already registered?"}</Link>
-        </div>
+    <BasicLayout>
+      <form onSubmit={submitHandler}>
+        <h1>Register Form</h1>
+        <input type="text" placeholder="name" ref={nameRef} />
+        <input type="email" placeholder="email" ref={emailRef} />
+        <input type="password" placeholder="password" ref={passwordRef} />
+        <button type="submit" className="bg-black">
+          <div>Register </div>
+        </button>
       </form>
-    </div>
+      <Link to="/login">
+        <div className="text-blue-700 underline text-center p-2">
+          Already Registered?
+        </div>
+      </Link>
+    </BasicLayout>
   );
 };
 

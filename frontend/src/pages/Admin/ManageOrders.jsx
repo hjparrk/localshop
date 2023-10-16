@@ -14,8 +14,9 @@ const ManageOrders = () => {
   return (
     <BasicLayout>
       <DashBoard>
+        <h1 className="page-title">Manage Orders</h1>
         {orders && (
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col">
             {orders.map((order, i) => {
               return <OrderItem key={i} order={order} />;
             })}

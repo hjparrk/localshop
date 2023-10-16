@@ -27,24 +27,30 @@ function App() {
   return (
     <Fragment>
       <Toaster position="top-center" />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
-        {user && <Route path="/cart" element={<Cart />} />}
-        {user && <Route path="/order" element={<Order />} />}
-        {user && <Route path="/order/:id" element={<OrderDetails />} />}
-        <Route path="/checkout/success" element={<CheckoutSuccess />} />
-        <Route path="/checkout/*" element={<CheckoutFail />} />
-        {admin && <Route path="/admin/products" element={<ManageProducts />} />}
-        {admin && <Route path="/admin/products/new" element={<NewProduct />} />}
-        {admin && (
-          <Route path="/admin/products/:id" element={<UpdateProduct />} />
-        )}
-        {admin && <Route path="/admin/users" element={<ManageUsers />} />}
-        {admin && <Route path="/admin/orders" element={<ManageOrders />} />}
-        {visitor && <Route path="/login" element={<Login />} />}
-        {visitor && <Route path="/register" element={<Register />} />}
-      </Routes>
+      <div className="pages">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+          {user && <Route path="/cart" element={<Cart />} />}
+          {user && <Route path="/order" element={<Order />} />}
+          {user && <Route path="/order/:id" element={<OrderDetails />} />}
+          <Route path="/checkout/success" element={<CheckoutSuccess />} />
+          <Route path="/checkout/*" element={<CheckoutFail />} />
+          {admin && (
+            <Route path="/admin/products" element={<ManageProducts />} />
+          )}
+          {admin && (
+            <Route path="/admin/products/new" element={<NewProduct />} />
+          )}
+          {admin && (
+            <Route path="/admin/products/:id" element={<UpdateProduct />} />
+          )}
+          {admin && <Route path="/admin/users" element={<ManageUsers />} />}
+          {admin && <Route path="/admin/orders" element={<ManageOrders />} />}
+          {visitor && <Route path="/login" element={<Login />} />}
+          {visitor && <Route path="/register" element={<Register />} />}
+        </Routes>
+      </div>
     </Fragment>
   );
 }

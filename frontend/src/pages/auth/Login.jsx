@@ -4,6 +4,7 @@ import { useLoginMutation } from "../../redux/api/authAPI";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
 import Loader from "../../components/Layout/Loader";
+import BasicLayout from "../../components/Layout/BasicLayout";
 
 const Login = () => {
   const emailRef = useRef();
@@ -41,22 +42,21 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <form className="flex flex-col gap-3" onSubmit={submitHandler}>
-        <div>
-          <label>Email</label>
-          <input type="email" placeholder="email" ref={emailRef} />
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="password" placeholder="password" ref={passwordRef} />
-        </div>
-        <div className="flex flex-col gap-5 items-start">
-          <button type="submit">Login</button>
-          <Link to="/register">{"haven't registered?"}</Link>
-        </div>
+    <BasicLayout>
+      <form onSubmit={submitHandler}>
+        <h1>Log In</h1>
+        <input type="email" placeholder="email" ref={emailRef} />
+        <input type="password" placeholder="password" ref={passwordRef} />
+        <button type="submit" className="bg-black">
+          <div>Login</div>
+        </button>
       </form>
-    </div>
+      <Link to="/register">
+        <div className="text-blue-700 underline text-center p-2">
+          Haven't Registered?
+        </div>
+      </Link>
+    </BasicLayout>
   );
 };
 

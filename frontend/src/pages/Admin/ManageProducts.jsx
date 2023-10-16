@@ -17,25 +17,29 @@ const ManageProducts = () => {
   return (
     <BasicLayout>
       <DashBoard>
-        <div className="flex flex-col gap-5">
+        <h1 className="page-title">Manage Products</h1>
+        <div className="flex flex-col">
+          <div></div>
           {products &&
             products.map((product, i) => {
               return (
-                <div key={i}>
-                  <h1>{product.name}</h1>
-                  <div className="flex flex-row gap-3">
+                <div key={i} className="product-bar">
+                  <div className="product-detail">
+                    <h1>{product.name}</h1>
+                    <h2>{product.description}</h2>
+                  </div>
+                  <div className="my-auto ">
                     <button
                       onClick={() => {
                         navigate(`/admin/products/${product._id}`);
                       }}
-                    >
+                      className="mr-2">
                       update
                     </button>
                     <button
                       onClick={async () => {
                         await deleteProduct(product._id);
-                      }}
-                    >
+                      }}>
                       delete
                     </button>
                   </div>

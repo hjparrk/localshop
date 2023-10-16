@@ -25,16 +25,24 @@ const OrderItem = ({ order }) => {
   };
 
   return (
-    <div>
-      <h1>{order._id}</h1>
-      {order && (
-        <select defaultValue={`${order.status}`} ref={statusRef}>
-          <option value="Processing">Processing</option>
-          <option value="Shipping">Shipping</option>
-          <option value="Delivered">Delivered</option>
-        </select>
-      )}
-      <button onClick={clickHandler}>update</button>
+    <div className="product-bar">
+      <div>
+        <h1>{order._id}</h1>
+        <h2>order description</h2>
+      </div>
+      <div>
+        {order && (
+          <select defaultValue={`${order.status}`} ref={statusRef}>
+            <option value="Processing">Processing</option>
+            <option value="Shipping">Shipping</option>
+            <option value="Delivered">Delivered</option>
+          </select>
+        )}
+
+        <button className="my-auto" onClick={clickHandler}>
+          update
+        </button>
+      </div>
     </div>
   );
 };
