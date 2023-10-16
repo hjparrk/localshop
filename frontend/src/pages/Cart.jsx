@@ -88,9 +88,9 @@ const Cart = () => {
                         update
                       </button>
                     </div>
-                    <button className="text-red-800 border border-black px-1">
+                    {/* <button className="text-red-800 border border-black px-1">
                       remove
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               );
@@ -99,10 +99,10 @@ const Cart = () => {
         <div className="flex justify-end items-center gap-5 py-1 px-4 border-t border-black">
           <h1>Total: ${total_price.toFixed(2)}</h1>
           <button onClick={clearCartHandler} className="black-btn">
-            clear cart
+            Clear my cart
           </button>
           <button onClick={checkoutHandler} className="black-btn">
-            Checkout
+            Move to checkout
           </button>
         </div>
       </div>

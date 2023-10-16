@@ -42,25 +42,38 @@ const ProductDetails = () => {
   return (
     <BasicLayout>
       {product && (
-        <div className="flex flex-row gap-5">
+        <div className="product-box full-box">
           <img src={product.image.url} />
-          <div className="flex flex-col gap-5">
-            <h1>{product.name}</h1>
-            <h1>{product.description}</h1>
-            <h1>{product.brand}</h1>
-            <h1>{product.category}</h1>
-            <h1>${+parseFloat(product.price.$numberDecimal).toFixed(2)}</h1>
-            {role === "user" && (
-              <input
-                type="number"
-                value={quantity}
-                placeholder="quantity"
-                onChange={quantityHandler}
-              />
-            )}
-            {role === "user" && (
-              <button onClick={addToCartHandler}>Add to Cart</button>
-            )}
+          <div>
+            <h1 className="font-semibold text-lg">{product.name}</h1>
+            <div className="font-semibold">{`${product.category} > ${product.brand}`}</div>
+            <div> {product.description}</div>
+
+            <h1 className="text-lg mt-2">
+              ${+parseFloat(product.price.$numberDecimal).toFixed(2)}
+            </h1>
+
+            <div className="flex gap-2 align-center">
+              {role === "user" && (
+                <div>
+                  <div className="font-semibold text-lg">Quantity: </div>
+                </div>
+              )}
+              {role === "user" && (
+                <input
+                  type="number"
+                  value={quantity}
+                  placeholder="quantity"
+                  onChange={quantityHandler}
+                  className="w-20 text-lg px-1"
+                />
+              )}
+              {role === "user" && (
+                <button onClick={addToCartHandler} className="black-btn">
+                  Add to Cart:{" "}
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
