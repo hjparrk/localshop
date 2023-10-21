@@ -1,11 +1,31 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import BasicLayout from "../../components/Layout/BasicLayout";
+import { useRegisterMutation } from "../../redux/api/authAPI";
+import Loader from "../../components/Layout/Loader";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
+
+  const navigate = useNavigate();
+
+  const [register, { data, isLoading, isError, error, isSuccess }] =
+    useRegisterMutation();
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(error?.data?.message);
+    }
+    if (isSuccess) {
+      toast.success(data.message);
+      navigate("/login");
+    }
+  }, [isSuccess, error]);
+
+  if (isLoading) return <Loader />;
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -20,7 +40,7 @@ const Register = () => {
       password,
     };
 
-    console.log(body);
+    await register(body);
   };
 
   return (
