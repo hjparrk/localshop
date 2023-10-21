@@ -27,8 +27,28 @@ const OrderItem = ({ order }) => {
   return (
     <div className="product-bar">
       <div>
-        <h1>{order._id}</h1>
-        <h2>order description</h2>
+        <table>
+          <tr>
+            <th>ID</th>
+            <td>#{order._id}</td>
+          </tr>
+          <tr>
+            <th>Status</th>
+            <td>{order.status}</td>
+          </tr>
+          <tr>
+            <th>Placed at</th>
+            <td>{order.createdAt.substring(0, 10)}</td>
+          </tr>
+          <tr>
+            <th># of items</th>
+            <td>{order.total_quantity}</td>
+          </tr>
+          <tr>
+            <th>Total price</th>
+            <td>${+parseFloat(order.total_price.$numberDecimal).toFixed(2)}</td>
+          </tr>
+        </table>
       </div>
       <div>
         {order && (

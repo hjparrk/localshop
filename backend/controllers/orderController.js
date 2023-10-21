@@ -22,6 +22,8 @@ const getMyOrders = catchAsyncErrors(async (req, res, next) => {
 
 // Get order details => GET /api/orders
 const getOrderDetails = catchAsyncErrors(async (req, res, next) => {
+  console.error(req.user);
+  console.log("hihi");
   const order = await Order.findById({
     _id: req.params.id,
     user: req.user._id,
