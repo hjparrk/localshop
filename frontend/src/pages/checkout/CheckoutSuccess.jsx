@@ -17,12 +17,12 @@ const CheckoutSuccess = () => {
 
   return (
     <BasicLayout>
-      <div>CheckoutSuccess</div>
+      <div className="page-title">Payment Successful</div>
       <button
+        className="black-btn"
         onClick={() => {
           navigate("/");
-        }}
-      >
+        }}>
         Continue Shopping
       </button>
     </BasicLayout>

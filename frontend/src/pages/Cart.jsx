@@ -53,7 +53,7 @@ const Cart = () => {
     <BasicLayout>
       <div className="flex flex-col">
         <h1 className="page-title">My Cart</h1>
-        <div className="flex w-full">
+        <div className="flex w-full flex-wrap">
           {products &&
             products.map((product, i) => {
               return (

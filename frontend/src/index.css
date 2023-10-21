@@ -174,3 +174,20 @@ form button > div {
     margin: 10px;
   }
 }
+
+table {
+  width: 100%;
+}
+
+table th {
+  width: 130px;
+  text-align: left;
+  font-weight: 400;
+  border-right: 1px solid black;
+  padding-left: 8px;
+  white-space: nowrap;
+}
+
+table td {
+  padding-left: 8px;
+}

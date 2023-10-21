@@ -3,7 +3,7 @@ import BasicLayout from "../../components/Layout/BasicLayout";
 const CheckoutFail = () => {
   return (
     <BasicLayout>
-      <div>Checkout Failed</div>
+      <div className="page-title">Checkout Failed</div>
     </BasicLayout>
   );
 };
