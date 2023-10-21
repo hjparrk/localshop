@@ -58,7 +58,7 @@ const NewProduct = () => {
     <BasicLayout>
       <DashBoard>
         <form onSubmit={submitHandler}>
-          <h1>Upload New Information</h1>
+          <h1>Upload New Product</h1>
           <input
             className="input box"
             type="text"
