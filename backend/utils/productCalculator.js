@@ -4,7 +4,9 @@ const productCalculator = (products) => {
 
   products.forEach((product) => {
     total_quantity += product.quantity;
-    total_price += +parseFloat(product.product.price).toFixed(2);
+    total_price += +parseFloat(
+      product.product.price * product.quantity
+    ).toFixed(2);
   });
 
   return { total_quantity, total_price };

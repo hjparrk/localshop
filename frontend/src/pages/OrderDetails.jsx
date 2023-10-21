@@ -31,7 +31,7 @@ const OrderDetails = () => {
               </tr>
               <tr>
                 <th>Placed at</th>
-                <td>{order.createdAt.substring(0, 10)}</td>
+                <td>{order.createdAt}</td>
               </tr>
               <tr>
                 <th># of items</th>
@@ -59,6 +59,13 @@ const OrderDetails = () => {
                     <span className="px-2">{" x "}</span>
                     <span>{product.quantity}</span>
                     <span className="px-2">=</span>
+                    <span>
+                      $
+                      {(
+                        +parseFloat(product.product.price.$numberDecimal) *
+                        product.quantity
+                      ).toFixed(2)}
+                    </span>
                   </div>
                 </div>
               );
