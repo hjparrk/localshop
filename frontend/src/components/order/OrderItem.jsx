@@ -48,6 +48,27 @@ const OrderItem = ({ order }) => {
             <th>Total price</th>
             <td>${+parseFloat(order.total_price.$numberDecimal).toFixed(2)}</td>
           </tr>
+          <tr>
+            <th>Ordered Items</th>
+            <td>
+              {order.products.map((product, i) => {
+                console.log(product);
+                console.log(product.product?.name);
+                return (
+                  <span key={i}>
+                    {product.product !== null ? (
+                      <span>{product.product?.name}</span>
+                    ) : (
+                      <span>Deleted product</span>
+                    )}
+                    <span>: </span>
+                    <span>{product.quantity}</span>
+                    <span>, </span>
+                  </span>
+                );
+              })}
+            </td>
+          </tr>
         </table>
       </div>
       <div>

@@ -71,10 +71,10 @@ const Cart = () => {
                       <input
                         className="ml-2 w-12 bg-black text-white text-center pl-1"
                         type="number"
-                        min="0"
-                        step="1"
+                        min="1"
                         defaultValue={product.quantity}
                         ref={quantityRef}
+                        required
                       />
                       <button
                         className="text-blue-500 px-1 border border-black"

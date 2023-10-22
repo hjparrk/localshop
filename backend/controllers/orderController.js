@@ -6,8 +6,10 @@ const productCalculator = require("../utils/productCalculator");
 
 // Get all history => GET /api/orders/all
 const getOrders = catchAsyncErrors(async (req, res, next) => {
-  const orders = await Order.find({});
-
+  const orders = await Order.find({})
+    .sort({ createdAt: "desc" })
+    .populate("products.product");
+  console.log(orders);
   res.status(200).json({ orders });
 });
 
@@ -28,7 +30,6 @@ const getOrderDetails = catchAsyncErrors(async (req, res, next) => {
     _id: req.params.id,
     user: req.user._id,
   }).populate("products.product");
-
   res.status(200).json({ order });
 });
 

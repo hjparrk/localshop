@@ -62,6 +62,8 @@ const ProductDetails = () => {
               {role === "user" && (
                 <input
                   type="number"
+                  min="1"
+                  step="1"
                   value={quantity}
                   placeholder="quantity"
                   onChange={quantityHandler}
