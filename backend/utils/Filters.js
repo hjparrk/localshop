@@ -43,10 +43,9 @@ class Filters {
     this.filteredQueryNum = foundProducts.length;
 
     // query from the database
-    this.query = await this.query
-      .find({ ...condition })
-      .limit(itemsPerPage)
-      .skip(skip);
+    this.query = await this.query.find({ ...condition });
+    // .limit(itemsPerPage)
+    // .skip(skip);
     return this;
   }
 }
